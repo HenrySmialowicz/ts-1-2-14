@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 
-class UserInterfaceTest {
+class ProgramControllerTest {
 /*
     @Mock
     private FileHandler mockFiler;

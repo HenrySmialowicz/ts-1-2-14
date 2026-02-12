@@ -1,9 +1,9 @@
-public class UserInterface {
+public class ProgramController {
     String[] args;
     /**
      * Commmand Line Utility
      */
-    public UserInterface(String[] in_args){
+    public ProgramController(String[] in_args){
         args=in_args;
     }
 

@@ -1,7 +1,7 @@
 
 public class TopSecret {
     public static void main(String[] args){
-        UserInterface ui = new UserInterface(args);
+        ProgramController ui = new ProgramController(args);
         ui.cmd_line_util();
     }
 }
