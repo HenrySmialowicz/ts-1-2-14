@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class FileHandler {
     private String folderPath;
@@ -11,17 +12,22 @@ public class FileHandler {
     }
 
     private Boolean isValidRequest(Path filePath) {
-        return true;
+        Path p = Paths.get(filePath.toString());
+        return Files.exists(p);
     }
 
-    public String getFileContents(String fileName) throws IOException {
-        Path filePath = Paths.get(folderPath + fileName);
-        if(isValidRequest(filePath)) {
-            return Files.readString(filePath);
+    public String getFileContents(ArrayList<String> fileName) throws IOException {
+        ArrayList<String> fileContent = new ArrayList<>();
+        for (int i = 0; i < fileName.size(); i++) {
+            Path filePath = Paths.get(folderPath + fileName);
+            if(isValidRequest(filePath)) {
+                fileContent.add(Files.readString(filePath)+"\n");
+            }
+            else {
+                return "Error! Invalid request - File does not exist.";
+            }
         }
-        else {
-            return "Error! Invalid request - File does not exist.";
-        }
+        return fileContent.toString();
     }
 
     public void setFolderPath(String folderPath) {
